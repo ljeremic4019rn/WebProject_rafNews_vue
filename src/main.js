@@ -2,29 +2,16 @@ import Vue from 'vue'
 import './plugins/axios'
 import App from './App.vue'
 import router from './router'
-
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-
-// Import Bootstrap an BootstrapVue CSS files (order is important)
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-// Make BootstrapVue available throughout your project
-Vue.use(BootstrapVue)
-// Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin)
+import {BootstrapVue, IconsPlugin} from "bootstrap-vue";
 
 Vue.config.productionTip = false
 
-Vue.filter('capitalize', function(value) {
-  if (!value) {
-    return '';
-  }
+Vue.use(BootstrapVue)
+Vue.use(IconsPlugin)
 
-  value = value.toString();
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-  return value.charAt(0).toUpperCase() + value.slice(1)
-})
 
 new Vue({
   router,

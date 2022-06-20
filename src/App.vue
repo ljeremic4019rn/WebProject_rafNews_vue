@@ -2,13 +2,19 @@
   <div>
     <Navbar/>
 
+    <div class="container">
+      <router-view/>
+    </div>
+
   </div>
 </template>
 
 <script>
-import Navbar from "./components/Navbar";
+import Navbar from "@/components/NavbarComp";
 export default {
-  components: {Navbar},
+  components: {
+    Navbar
+  },
 }
 </script>
 
