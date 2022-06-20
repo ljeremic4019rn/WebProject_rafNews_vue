@@ -1,6 +1,6 @@
 <template>
 	<div class="add-article">
-		<div v-if="user.status == 'Active'">
+		<div v-if="user.status === 'Active'">
 			<div class="container">
 				<h1>New Article</h1>
 				<form>
@@ -23,7 +23,7 @@
 
 <script>
 export default {
-	name: "AddArticle",
+	name: "AddArticleView",
 	data() {
 		return {
 			user: JSON.parse(atob(localStorage.getItem('jwt').split('.')[1])),

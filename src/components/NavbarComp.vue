@@ -23,9 +23,6 @@
           <li class="nav-item">
             <router-link :to="{name: 'SignInView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'SingInView'}">Sign in</router-link>
           </li>
-          <li class="nav-item">
-            <router-link :to="{name: 'SignInView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === '#'}">Sign up</router-link>
-          </li>
         </b-navbar-nav>
 
       </b-collapse>
