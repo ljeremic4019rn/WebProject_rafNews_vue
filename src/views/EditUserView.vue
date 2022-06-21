@@ -7,12 +7,8 @@
 				<div class="form-group"><label>Lastname:</label><input v-model="user.lastname" type="text" class="form-control" /></div>
 				<div class="form-group"><label>E-mail:</label><input v-model="user.email" type="text" class="form-control" /></div>
 				<div class="form-group"><label>Role:</label><select v-model="user.role" class="form-control">
-					<option value="ADMIN" selected>Admin</option>
-					<option value="CONTENT_CREATOR">Content Creator</option>
-				</select></div>
-				<div class="form-group"><label>Status:</label><select v-model="user.status" class="form-control">
-					<option value="Active" selected>Active</option>
-					<option value="NotActive">NotActive</option>
+					<option value="admin" selected>Admin</option>
+					<option value="content_creator">Content Creator</option>
 				</select></div>
 			</form>
 		</div>
@@ -34,7 +30,7 @@ export default {
 				if (response.status === 200) {
 					this.user = response.data
 				}
-			})
+			})//
 	},
 	methods: {
 		editUser() {

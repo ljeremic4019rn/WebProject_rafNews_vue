@@ -9,6 +9,7 @@ import EditCategoryView from "@/views/EditCategoryView";
 import NewCategoryView from "@/views/NewCategoryView";
 import ArticlesView from "@/views/ArticlesView";
 import ArticlesByCategory from "@/views/ArticlesByCategory";
+import UsersView from "@/views/UsersView";
 
 Vue.use(VueRouter)
 
@@ -37,7 +38,6 @@ const routes = [
     path: '/categories',
     name: 'CategoryView',
     component: CategoryView
-    // component: () => import('../views/CategoryView.vue')
   },
   {
     path: '/edit-category/:id',
@@ -59,6 +59,11 @@ const routes = [
     path: '/articlesByCategory/:id',
     name: 'ArticlesByCategory',
     component: ArticlesByCategory
+  },
+  {
+    path: '/users',
+    name: 'UsersView',
+    component: UsersView
   },
 ]
 

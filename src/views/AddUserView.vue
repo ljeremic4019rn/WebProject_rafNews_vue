@@ -7,8 +7,8 @@
 				<div class="form-group"><label>Lastname:</label><input v-model="user.lastname" type="text" class="form-control" /></div>
 				<div class="form-group"><label>E-mail:</label><input v-model="user.email" type="text" class="form-control" /></div>
 				<div class="form-group"><label>Role:</label><select v-model="user.role" class="form-control">
-					<option value="ADMIN" selected>Admin</option>
-					<option value="CONTENT_CREATOR">Content Creator</option>
+					<option value="admin" selected>Admin</option>
+					<option value="content_creator">Content Creator</option>
 				</select></div>
 				<div class="form-group"><label>Password:</label><input v-model="user.password" class="form-control" type="password" /></div>
 				<div class="form-group"><label>Password confirmation:</label><input v-model="user.passwordConfirmation" class="form-control" type="password" /></div>
@@ -32,7 +32,7 @@ export default {
 				passwordConfirmation: ""
 			}
 		}
-	},
+	},//
 	methods: {
 		addUser() {
 			if (this.user.name.trim() && this.user.lastname.trim() && this.user.email.trim()
