@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import SignInView from "../views/SignInView";
 import AddArticleView from "../views/AddArticleView";
 import AddUserView from "@/views/AddUserView";
 import EditUserView from "@/views/EditUserView";
+import CategoryView from "@/views/CategoryView";
+import EditCategoryView from "@/views/EditCategoryView";
+import NewCategoryView from "@/views/NewCategoryView";
+import ArticlesView from "@/views/ArticlesView";
+import ArticlesByCategory from "@/views/ArticlesByCategory";
 
 Vue.use(VueRouter)
 
@@ -13,11 +17,6 @@ const routes = [
     path: '/signIn',
     name: 'SignInView',
     component: SignInView
-  },
-  {
-    path: '/',
-    name: 'HomeView',
-    component: HomeView
   },
   {
     path: '/addArticle',
@@ -33,7 +32,34 @@ const routes = [
     path: '/cms_editUser/:id',
     name: 'EditUserView',
     component: EditUserView
-  }
+  },
+  {
+    path: '/categories',
+    name: 'CategoryView',
+    component: CategoryView
+    // component: () => import('../views/CategoryView.vue')
+  },
+  {
+    path: '/edit-category/:id',
+    name: 'EditCategoryView',
+    props: true,
+    component: EditCategoryView
+  },
+  {
+    path: '/new-category',
+    name: 'NewCategoryView',
+    component: NewCategoryView
+  },
+  {
+    path: '/articles',
+    name: 'ArticlesView',
+    component: ArticlesView
+  },
+  {
+    path: '/articlesByCategory/:id',
+    name: 'ArticlesByCategory',
+    component: ArticlesByCategory
+  },
 ]
 
 const router = new VueRouter({

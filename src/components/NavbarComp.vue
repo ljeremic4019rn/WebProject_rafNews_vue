@@ -9,7 +9,7 @@
 
         <b-navbar-nav>
           <li class="nav-item">
-            <router-link :to="{name: 'HomeView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'HomeView'}">Articles</router-link>
+            <router-link :to="{name: '#'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === '#'}">Articles</router-link>
           </li>
           <li class="nav-item">
             <router-link :to="{name: 'SignInView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === '#'}">Most recent</router-link>

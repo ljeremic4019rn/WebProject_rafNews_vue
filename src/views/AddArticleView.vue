@@ -100,13 +100,6 @@ export default {
 		},
 
 		checkIfTagExists(){//todo ovo mozda da se uradi da ne bi imali duplicate tagove
-			// this.$axios.get('/api/tags')
-			// 	.then(response => {
-			// 		if (response.status === 200) {
-			// 			console.log(response.data)
-			// 			this.categories = response.data
-			// 		}
-			// 	});
 		}
 	}
 }
