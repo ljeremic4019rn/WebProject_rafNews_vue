@@ -10,10 +10,20 @@ import NewCategoryView from "@/views/NewCategoryView";
 import ArticlesView from "@/views/ArticlesView";
 import ArticlesByCategory from "@/views/ArticlesByCategory";
 import UsersView from "@/views/UsersView";
+import EditArticleView from "@/views/EditArticleView";
+import HomeView from "@/views/HomeView";
+import PublicArtByCatView from "@/views/PublicArtByCatView";
+import MostReadView from "@/views/MostReadView";
+import ArticlesByTagView from "@/views/ArticlesByTagView";
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/',
+    name: 'HomeView',
+    component: HomeView
+  },
   {
     path: '/signIn',
     name: 'SignInView',
@@ -56,6 +66,11 @@ const routes = [
     component: ArticlesView
   },
   {
+    path: '/editArticle/:id',
+    name: 'EditArticleView',
+    component: EditArticleView
+  },
+  {
     path: '/articlesByCategory/:id',
     name: 'ArticlesByCategory',
     component: ArticlesByCategory
@@ -64,6 +79,21 @@ const routes = [
     path: '/users',
     name: 'UsersView',
     component: UsersView
+  },
+  {
+    path: '/publicArtByCategory/:id',
+    name: 'PublicArtByCategory',
+    component: PublicArtByCatView
+  },
+  {
+    path: '/mostRead',
+    name: 'MostRead',
+    component: MostReadView
+  },
+  {
+    path: '/byTag/:id',
+    name: 'ByTag',
+    component: ArticlesByTagView
   },
 ]
 

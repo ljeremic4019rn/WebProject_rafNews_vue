@@ -3,10 +3,10 @@
 		<div>
 			<b-table hover :items="articles" :fields="computedFields">
 				<template v-slot:cell(edit)="data" v-if="user.role === 'admin'">
-					<router-link :to="{ name: 'EditCategoryView', params: { category: {id: data.item.id, name: data.item.name, description: data.item.description }}}" tag="b-btn" class="btn-info">Edit</router-link>
+					<router-link :to="{ path: `/editArticle/${data.item.id}`}" tag="b-btn" class="btn-info">Edit</router-link>
 				</template>
 				<template v-slot:cell(delete)="data" v-if="user.role === 'admin'">
-					<span><b-btn class="btn-danger" @click="deleteCategory(data.item.id)">Delete</b-btn></span>
+					<span><b-btn class="btn-danger" @click="deleteArticle(data.item.id)">Delete</b-btn></span>
 				</template>
 				<template v-slot:cell(date)="data">
 					{{new Date(data.item.date).toLocaleDateString('en-GB')}}
@@ -62,13 +62,12 @@ export default {
 		}
 	},
 	methods: {
-		deleteCategory(categoryId) {
-			this.$axios.delete(`/api/categories/${categoryId}`)
+		deleteArticle(articleId){
+			this.$axios.delete(`/api/articles/${articleId}`)
 				.then(() => {
-					//this.categories = response.data
-					this.categories = this.categories.filter(category => category.id !== categoryId)
+					this.articles= this.articles.filter(article => article.id !== articleId)
 				})
-				.catch((err) => {
+				.catch((err)=> {
 					console.log(err);
 				})
 		}

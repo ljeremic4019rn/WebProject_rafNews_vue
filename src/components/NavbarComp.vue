@@ -9,15 +9,16 @@
 
         <b-navbar-nav>
           <li class="nav-item">
-            <router-link :to="{name: '#'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === '#'}">Articles</router-link>
+            <router-link :to="{name: 'HomeView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'HomeView'}">Articles</router-link>
           </li>
           <li class="nav-item">
-            <router-link :to="{name: 'SignInView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === '#'}">Most recent</router-link>
+            <router-link :to="{name: 'MostRead'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'MostRead'}">Most read monthly</router-link>
           </li>
-          <li class="nav-item">
-            <router-link :to="{name: 'SignInView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === '#'}">Most read monthly</router-link>
-          </li>
+			<b-nav-item-dropdown text="Categories" right>
+				<b-dropdown-item v-for="category in categories" :key="category.id" @click="reload" :value="category.id" :to="`/publicArtByCategory/${category.id}`">{{ category.name }}</b-dropdown-item>
+			</b-nav-item-dropdown>
         </b-navbar-nav>
+
 
         <b-navbar-nav class="ml-auto">
           <li class="nav-item">
@@ -32,7 +33,28 @@
 
 <script>
 export default {
-  name: "nav_bar"
+  name: "navBar",
+	data() {
+		return {
+			categories: [],
+		}
+	},
+
+	methods: {
+		reload(){
+			window.location.reload()
+		}
+	},
+
+	mounted() {
+		this.$axios.get('/api/categories')
+			.then(response => {
+				this.categories = response.data
+				// console.log(this.categories[1])
+			})
+	}
+
+
 }
 </script>
 
