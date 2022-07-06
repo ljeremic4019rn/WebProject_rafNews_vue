@@ -15,6 +15,7 @@ import HomeView from "@/views/HomeView";
 import PublicArtByCatView from "@/views/PublicArtByCatView";
 import MostReadView from "@/views/MostReadView";
 import ArticlesByTagView from "@/views/ArticlesByTagView";
+import SingleArticleVIew from "@/views/SingleArticleVIew";
 
 Vue.use(VueRouter)
 
@@ -91,9 +92,14 @@ const routes = [
     component: MostReadView
   },
   {
-    path: '/byTag/:id',
+    path: '/tag/:id',
     name: 'ByTag',
     component: ArticlesByTagView
+  },
+  {
+    path: '/articles/:id',
+    name: 'SingleArticleVIew',
+    component: SingleArticleVIew
   },
 ]
 

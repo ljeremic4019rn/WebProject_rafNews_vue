@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import HomeView from "@/views/HomeView";
+
 export default {
 	name: "AddUserView",
 	data() {
@@ -59,7 +61,7 @@ export default {
 					.then(response => {
 						if (response.status === 200) {
 							alert('User added successfully')
-							// this.$router.push('/cms')//todo stavi pravilnu rutu
+							this.$router.push(HomeView)
 						} else {
 							alert(response.data.message);
 						}
