@@ -40,7 +40,8 @@ export default {
 					localStorage.setItem('user', user)
 
 					console.log(user)
-					// this.$router.push('/categories') todo ovde stavi pravilnu rutu
+					this.$router.push('/')
+					window.location.reload()
 				}
 
 			})
@@ -48,6 +49,7 @@ export default {
 					alert("Email or password not correct.")
 					console.log(err)
 				})
+
 		},
 		parseJwt (token) {
 			var base64Url = token.split('.')[1];

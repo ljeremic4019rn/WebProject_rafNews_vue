@@ -18,8 +18,6 @@ export default {
 
 	data(){
 		return {
-			user: JSON.parse(atob(localStorage.getItem('jwt').split('.')[1])),
-			users: [],
 			articles: [],
 			categories: []
 		}

@@ -1,5 +1,14 @@
 <template>
-  <div>
+
+	<div v-if="this.user == null">
+		<NavBarPublic/>
+
+		<div class="container">
+			<router-view/>
+		</div>
+	</div>
+
+  <div v-else>
     <Navbar/>
 
     <div class="container">
@@ -11,9 +20,22 @@
 
 <script>
 import Navbar from "@/components/NavbarComp";
+import NavBarPublic from "@/components/NavbarCompPublic";
+
 export default {
-  components: {
-    Navbar
+	data() {
+		return {
+			user: null
+		}
+	},
+	mounted() {
+		if (localStorage.getItem('jwt') != null){
+			this.user = JSON.parse(atob(localStorage.getItem('jwt').split('.')[1]))
+		}
+	},
+	components: {
+    Navbar,
+	NavBarPublic
   },
 }
 </script>

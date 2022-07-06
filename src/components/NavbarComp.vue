@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
+    <b-navbar toggleable="lg" type="dark" variant="primary">
       <b-navbar-brand href="#">Raf News</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -8,23 +8,24 @@
       <b-collapse id="nav-collapse" is-nav>
 
         <b-navbar-nav>
-          <li class="nav-item">
-            <router-link :to="{name: 'HomeView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'HomeView'}">Articles</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link :to="{name: 'MostRead'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'MostRead'}">Most read monthly</router-link>
-          </li>
-			<b-nav-item-dropdown text="Categories" right>
-				<b-dropdown-item v-for="category in categories" :key="category.id" @click="reload" :value="category.id" :to="`/publicArtByCategory/${category.id}`">{{ category.name }}</b-dropdown-item>
-			</b-nav-item-dropdown>
+			<router-link :to="{name: 'ArticlesView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'ArticlesView'}">Articles</router-link>
+			<router-link :to="{name: 'CategoryView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'CategoryView'}">Categories</router-link>
+<!--			<b-nav-item-dropdown text="Categories" right>-->
+<!--				<b-dropdown-item v-for="category in categories" :key="category.id" @click="reload" :value="category.id" :to="`/publicArtByCategory/${category.id}`">{{ category.name }}</b-dropdown-item>-->
+<!--			</b-nav-item-dropdown>-->
         </b-navbar-nav>
 
 
         <b-navbar-nav class="ml-auto">
-          <li class="nav-item">
-            <router-link :to="{name: 'SignInView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'SingInView'}">Sign in</router-link>
-          </li>
-        </b-navbar-nav>
+			<li class="nav-item" v-if="this.user != null">
+				<b-nav-text>Welcome, {{user.name}}</b-nav-text>
+			</li>
+<!--			<li class="nav-item">-->
+<!--				<router-link tag="a" class="nav-link" @click="logout" to>Sign out</router-link>-->
+<!--			</li>-->
+			<b-nav-item @click="logout">Sign out</b-nav-item>
+
+		</b-navbar-nav>
 
       </b-collapse>
     </b-navbar>
@@ -36,11 +37,19 @@ export default {
   name: "navBar",
 	data() {
 		return {
+			user: null,//JSON.parse(atob(localStorage.getItem('jwt').split('.')[1])),
 			categories: [],
 		}
 	},
-
 	methods: {
+		logout(){
+
+			localStorage.removeItem('jwt')
+			localStorage.removeItem('user')
+			this.user = null
+			this.$router.push('/')
+			window.location.reload()
+		},
 		reload(){
 			window.location.reload()
 		}
@@ -52,6 +61,10 @@ export default {
 				this.categories = response.data
 				// console.log(this.categories[1])
 			})
+
+		if (localStorage.getItem('jwt') != null){
+			this.user = JSON.parse(atob(localStorage.getItem('jwt').split('.')[1]))
+		}
 	}
 
 
