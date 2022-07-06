@@ -20,6 +20,7 @@
 
 <script>
 import HomeView from "@/views/HomeView";
+import UsersView from "@/views/UsersView";
 
 export default {
 	name: "AddUserView",
@@ -61,7 +62,7 @@ export default {
 					.then(response => {
 						if (response.status === 200) {
 							alert('User added successfully')
-							this.$router.push(HomeView)
+							this.$router.push(UsersView)
 						} else {
 							alert(response.data.message);
 						}

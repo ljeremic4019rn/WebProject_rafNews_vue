@@ -36,7 +36,7 @@ export default {
 	},
 	methods: {
 		onSubmit(event) {
-			event.preventDefault()
+			event.preventDefault()//todo ne moze vise categoria sa istim imenom, catch exeption
 
 			this.$axios.post('/api/cms_category', this.form)
 				.then((response) => {

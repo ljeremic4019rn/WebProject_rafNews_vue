@@ -40,7 +40,7 @@ export default {
 					localStorage.setItem('user', user)
 
 					console.log(user)
-					this.$router.push('/')
+					this.$router.push('/categories')
 					window.location.reload()
 				}
 

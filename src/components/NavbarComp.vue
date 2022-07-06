@@ -10,9 +10,10 @@
         <b-navbar-nav>
 			<router-link :to="{name: 'ArticlesView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'ArticlesView'}">Articles</router-link>
 			<router-link :to="{name: 'CategoryView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'CategoryView'}">Categories</router-link>
-<!--			<b-nav-item-dropdown text="Categories" right>-->
-<!--				<b-dropdown-item v-for="category in categories" :key="category.id" @click="reload" :value="category.id" :to="`/publicArtByCategory/${category.id}`">{{ category.name }}</b-dropdown-item>-->
-<!--			</b-nav-item-dropdown>-->
+			<router-link v-if="user.role === 'admin'" :to="{name: 'UsersView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'UsersView'}">Users</router-link>
+			<b-nav-item-dropdown text="Categories" right>
+				<b-dropdown-item v-for="category in categories" :key="category.id" @click="reload" :value="category.id" :to="`/publicArtByCategory/${category.id}`">{{ category.name }}</b-dropdown-item>
+			</b-nav-item-dropdown>
         </b-navbar-nav>
 
 
@@ -20,10 +21,7 @@
 			<li class="nav-item" v-if="this.user != null">
 				<b-nav-text>Welcome, {{user.name}}</b-nav-text>
 			</li>
-<!--			<li class="nav-item">-->
-<!--				<router-link tag="a" class="nav-link" @click="logout" to>Sign out</router-link>-->
-<!--			</li>-->
-			<b-nav-item @click="logout">Sign out</b-nav-item>
+		<b-nav-item @click="logout">Sign out</b-nav-item>
 
 		</b-navbar-nav>
 

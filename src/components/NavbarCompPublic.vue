@@ -10,9 +10,6 @@
 					<router-link :to="{name: 'HomeView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'HomeView'}">Articles</router-link>
 					<router-link :to="{name: 'MostRead'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'MostRead'}">Most Read Monthly</router-link>
 
-					<!--					<b-nav-item-dropdown text="Categories" right>-->
-<!--						<b-dropdown-item v-for="category in categories" :key="category.id" @click="reload" :value="category.id" :to="`/publicArtByCategory/${category.id}`">{{ category.name }}</b-dropdown-item>-->
-<!--					</b-nav-item-dropdown>-->
 				</b-navbar-nav>
 
 				<b-navbar-nav class="ml-auto">

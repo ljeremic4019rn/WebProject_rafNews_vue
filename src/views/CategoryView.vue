@@ -19,7 +19,7 @@
 
 <script>
 export default {
-	name: "CategoryView",
+	name: "CategoryView",//todo ne mozes da obrises ako iam arktikal
 	data(){
 		return {
 			user: JSON.parse(atob(localStorage.getItem('jwt').split('.')[1])),
