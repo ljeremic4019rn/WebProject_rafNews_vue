@@ -42,11 +42,15 @@ export default {
 		}
 	},
 	methods: {
-		deleteCategory(categoryId){//todo popravi path
-			this.$axios.delete(`/api/cms_category/${categoryId}`)//todo pogledaj da li radi
+		deleteCategory(categoryId){
+			this.$axios.delete(`/api/cms_category/${categoryId}`)
 				.then(() => {
-					//this.categories = response.data
-					this.categories= this.categories.filter(category => category.id !== categoryId)
+					if (this.articles.filter(article => article.category.id).length > 0){
+						alert("Category still contains articles")
+					}
+					else{
+						this.categories= this.categories.filter(category => category.id !== categoryId)
+					}
 				})
 				.catch((err)=> {
 					console.log(err);

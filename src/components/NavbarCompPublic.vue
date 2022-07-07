@@ -14,8 +14,15 @@
 
 				<b-navbar-nav class="ml-auto">
 					<li class="nav-item">
+						<form>
+							<input type="text" v-model="searchText" placeholder="Search.." name="search">
+							<button type="submit" @click = "search" >Submit</button>
+						</form>
+					</li>
+					<li class="nav-item">
 						<router-link :to="{name: 'SignInView'}" tag="a" class="nav-link" :class="{active: this.$router.currentRoute.name === 'SingInView'}">Sign in</router-link>
 					</li>
+
 				</b-navbar-nav>
 			</b-collapse>
 		</b-navbar>
@@ -23,17 +30,23 @@
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
 	name: "NavbarCompPublic",
 	data() {
 		return {
 			categories: [],
+			searchText: ""
 		}
 	},
 
 	methods: {
 		reload(){
 			window.location.reload()
+		},
+		search(){
+			router.push('/search/' + this.searchText)
 		}
 	},
 

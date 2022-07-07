@@ -18,6 +18,12 @@
 
 
         <b-navbar-nav class="ml-auto">
+			<li class="nav-item">
+				<form>
+					<input type="text" v-model="searchText" placeholder="Search.." name="search">
+					<button type="submit" @click = "search" >Submit</button>
+				</form>
+			</li>
 			<li class="nav-item" v-if="this.user != null">
 				<b-nav-text>Welcome, {{user.name}}</b-nav-text>
 			</li>
@@ -31,6 +37,8 @@
 </template>
 
 <script>
+import router from "@/router";
+
 export default {
   name: "navBar",
 	data() {
@@ -41,7 +49,6 @@ export default {
 	},
 	methods: {
 		logout(){
-
 			localStorage.removeItem('jwt')
 			localStorage.removeItem('user')
 			this.user = null
@@ -50,6 +57,9 @@ export default {
 		},
 		reload(){
 			window.location.reload()
+		},
+		search(){
+			router.push('articles/search/' + this.searchText)
 		}
 	},
 

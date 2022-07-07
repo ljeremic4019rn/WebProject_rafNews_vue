@@ -18,7 +18,7 @@
 <script>
 
 export default {
-	name: 'HomeView',
+	name: 'HomeSearchedView',
 	components: {
 	},
 
@@ -40,7 +40,7 @@ export default {
 	},
 
 	mounted() {
-		this.$axios.get('/api/articles')
+		this.$axios.get(`/api/cms_articles/search/${this.$route.params.search}`)
 			.then(response => {
 				this.articles = response.data
 			})

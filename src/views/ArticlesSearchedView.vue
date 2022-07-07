@@ -25,7 +25,7 @@
 
 <script>
 export default {
-	name: "ArticlesView",
+	name: "ArticlesSearchedView",
 	computed: {
 		computedFields() {
 			if (this.user.role !== 'admin') {
@@ -82,11 +82,11 @@ export default {
 				})
 		}
 	},
+
 	mounted() {
-		this.$axios.get('/api/articles')
+		this.$axios.get(`/api/cms_articles/search/${this.$route.params.search}`)
 			.then(response => {
 				this.articles = response.data
-				console.log(this.articles[0])
 			})
 
 		this.$axios.get('/api/users')

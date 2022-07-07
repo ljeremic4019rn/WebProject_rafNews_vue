@@ -45,7 +45,6 @@ export default {
 	name: "SingleArticleView",
 	data(){
 		return {
-			//user: JSON.parse(atob(localStorage.getItem('jwt').split('.')[1])),
 			article: {},
 			users: [],
 			tags: [],
@@ -62,7 +61,6 @@ export default {
 			.then(response => {
 				this.article = response.data
 			});
-
 		this.$axios.get('/api/users/')
 			.then(response => {
 				this.users = response.data
@@ -76,6 +74,7 @@ export default {
 			.then(response => {
 				this.articleComments = response.data
 			});
+		this.$axios.post(`/api/articles/visit/${this.$route.params.id}`);
 
 	},
 	methods: {

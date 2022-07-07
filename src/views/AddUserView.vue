@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import HomeView from "@/views/HomeView";
 import UsersView from "@/views/UsersView";
 
 export default {

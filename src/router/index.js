@@ -16,6 +16,8 @@ import PublicArtByCatView from "@/views/PublicArtByCatView";
 import MostReadView from "@/views/MostReadView";
 import ArticlesByTagView from "@/views/ArticlesByTagView";
 import SingleArticleVIew from "@/views/SingleArticleVIew";
+import ArticlesSearchedView from "@/views/ArticlesSearchedView";
+import HomeSearchedView from "@/views/HomeSearchedView";
 
 Vue.use(VueRouter)
 
@@ -100,6 +102,16 @@ const routes = [
     path: '/articles/:id',
     name: 'SingleArticleVIew',
     component: SingleArticleVIew
+  },
+  {
+    path: '/articles/search/:search',
+    name: 'ArticlesSearchedView',
+    component: ArticlesSearchedView
+  },
+  {
+    path: '/search/:search',
+    name: 'HomeSearchedView',
+    component: HomeSearchedView
   },
 ]
 
