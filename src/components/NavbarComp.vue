@@ -45,6 +45,7 @@ export default {
 		return {
 			user: null,//JSON.parse(atob(localStorage.getItem('jwt').split('.')[1])),
 			categories: [],
+			searchText: "",
 		}
 	},
 	methods: {
@@ -59,7 +60,10 @@ export default {
 			window.location.reload()
 		},
 		search(){
-			router.push('articles/search/' + this.searchText)
+			if (localStorage.getItem("searchCash") !== this.searchText){
+				router.push('/search/' + this.searchText)
+			}
+			localStorage.setItem("searchCash",this.searchText)
 		}
 	},
 

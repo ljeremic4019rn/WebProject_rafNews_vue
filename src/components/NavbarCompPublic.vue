@@ -37,7 +37,7 @@ export default {
 	data() {
 		return {
 			categories: [],
-			searchText: ""
+			searchText: "",
 		}
 	},
 
@@ -46,7 +46,10 @@ export default {
 			window.location.reload()
 		},
 		search(){
-			router.push('/search/' + this.searchText)
+			if (localStorage.getItem("searchCash") !== this.searchText){
+				router.push('/search/' + this.searchText)
+			}
+			localStorage.setItem("searchCash",this.searchText)
 		}
 	},
 
