@@ -8,7 +8,7 @@
 					<div class="form-group"><label>Category:</label><select v-model="article.category" class="form-control">
 						<option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
 					</select></div>
-					<div class="form-group"><label>Article title:</label><textarea v-model="article.content" class="form-control"></textarea></div>
+					<div class="form-group"><label>Article content:</label><textarea v-model="article.content" class="form-control"></textarea></div>
 					<div class="form-group"><label>Tags:</label><input v-model="article.tags" type="text" class="form-control" />
 						<small>Separate tag names with a space  i.e &quot;tag-1 tag-2 tag-3&quot;</small></div>
 					<button @click="addArticle" type="button" class="btn btn-primary">Add Article</button>

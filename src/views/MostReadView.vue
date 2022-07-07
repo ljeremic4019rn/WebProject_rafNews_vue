@@ -1,9 +1,16 @@
 <template>
 	<div class="mt-5">
-		<b-card class="mt-3" :title="article.title" :sub-title="new Date(article.date).toLocaleDateString('en-GB')" v-for="article in articles" :key="article.id">
+		<b-card class="mt-3" v-for="article in articles" :key="article.id">
+			<b-card-title>
+				<b-link :to="{ path: `/articles/${article.id}`}">{{article.title}}</b-link>
+			</b-card-title>
+			<b-card-sub-title>
+				{{new Date(article.date).toLocaleDateString('en-GB')}}
+			</b-card-sub-title>
 			<b-card-text>
 				{{article.content | shorten}}
 			</b-card-text>
+
 		</b-card>
 	</div>
 </template>
