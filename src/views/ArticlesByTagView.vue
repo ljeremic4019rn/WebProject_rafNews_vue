@@ -10,9 +10,11 @@
 			<b-card-text>
 				{{article.content | shorten}}
 			</b-card-text>
-
 		</b-card>
 	</div>
+
+
+
 </template>
 
 <script>
