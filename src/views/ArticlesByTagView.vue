@@ -27,7 +27,6 @@ export default {
 	data(){
 		return {
 			user: JSON.parse(atob(localStorage.getItem('jwt').split('.')[1])),
-			users: [],
 			articles: [],
 			categories: []
 		}
@@ -43,6 +42,8 @@ export default {
 		this.$axios.get(`/api/articles/tag/${this.$route.params.id}`)//tagId
 			.then(response => {
 				this.articles = response.data
+				console.log(response.data)
+
 			})
 
 		this.$axios.get('/api/users')

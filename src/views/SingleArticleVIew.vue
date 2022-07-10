@@ -2,8 +2,9 @@
 	<div class="container">
 		<div class="container-fluid">
 			<h1 class="mt-3">{{article.title}}</h1>
-			<p class="text-muted">{{getAuthorName(article.authorId)}} | {{new Date(article.date).toLocaleDateString('en-GB')}}</p>
-			<b-badge pill variant="info" class="mr-1 mb-5" v-for="tag in tags" :key="'tag'+tag.id" :to="{ path: `/tag/${tag.id}`}" :id="tag.id">#{{tag.name}}<br></b-badge>
+			<p class="text-muted">{{'User: ' + getAuthorName(article.authorId)}}</p>
+			<p class="text-muted"> {{'Creation date: ' + new Date(article.date).toLocaleDateString('en-GB')}}</p>
+			<b-button variant="info" class="mr-1 mb-5" v-for="tag in tags" :key="'tag'+tag.id" :to="{ path: `/tag/${tag.id}`}" :id="tag.id">#{{tag.name}}<br></b-button>
 			<p>{{article.content}}</p>
 			<h3 class="mt-5">Add a comment:</h3>
 			<div>
